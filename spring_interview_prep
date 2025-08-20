@@ -1,3 +1,7 @@
 1. What is the difference between bean factory and application context?
--> “BeanFactory is the basic Spring container that provides Dependency Injection and supports lazy loading of beans. ApplicationContext is a superset of BeanFactory that provides additional enterprise features like 
-   internationalization, event propagation, annotation support, and by default eagerly loads beans. In real-world projects, we generally use ApplicationContext.”
+->  BeanFactory is the basic Spring container that provides Dependency Injection and supports lazy loading of beans. ApplicationContext is a superset of BeanFactory that provides additional enterprise features like 
+   internationalization, event propagation, annotation support, and by default eagerly loads beans. In real-world projects, we generally use ApplicationContext.
+
+2. What is the difference between spring core module and spring context module?
+-> Spring Core is the base module that provides IoC and DI using the BeanFactory. Spring Context builds on top of Core and provides ApplicationContext with enterprise features like event handling, 
+   internationalization, resource loading, and annotation-based configuration. In real projects, we generally work with Spring Context.
