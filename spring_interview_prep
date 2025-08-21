@@ -1,7 +1,89 @@
-1. What is the difference between bean factory and application context?
+1. What is the difference between spring core module and spring context module?
+-> Spring Core is the base module that provides IoC and DI using the BeanFactory. Spring Context builds on top of Core and provides ApplicationContext with enterprise features like event handling, 
+   internationalization, resource loading, and annotation-based configuration. In real projects, we generally work with Spring Context.
+
+2. What is the difference between bean factory and application context?
 ->  BeanFactory is the basic Spring container that provides Dependency Injection and supports lazy loading of beans. ApplicationContext is a superset of BeanFactory that provides additional enterprise features like 
    internationalization, event propagation, annotation support, and by default eagerly loads beans. In real-world projects, we generally use ApplicationContext.
 
-2. What is the difference between spring core module and spring context module?
--> Spring Core is the base module that provides IoC and DI using the BeanFactory. Spring Context builds on top of Core and provides ApplicationContext with enterprise features like event handling, 
-   internationalization, resource loading, and annotation-based configuration. In real projects, we generally work with Spring Context.
+
+3.What is AOP?
+->AOP (Aspect-Oriented Programming) in Spring is a programming paradigm that helps you separate cross-cutting concerns (like logging, security, transactions) from your main business logic.
+-> Instead of writing the same code (e.g., logging) inside multiple methods, you define it once as an Aspect, and Spring applies it automatically wherever needed.
+
+4.What are the types of classes in Spring?
+   1. Configuration Classes
+      ->These are classes annotated with @Configuration.
+      ->They define beans using @Bean methods.
+
+   2.Component Classes
+     ->Spring provides stereotype annotations to mark classes as beans so they can be auto-detected during component scanning.
+           @Component → Generic Spring-managed class.
+           @Service → Service layer class (business logic).
+           @Repository → DAO layer class (database operations).
+           @Controller → Web MVC controller.
+           @RestController → Special controller that returns JSON/XML instead of views.
+       These are all specializations of @Component.
+
+    3. Entity Classes
+         ->Used with ORM frameworks like Hibernate/JPA.
+         ->Represent database tables.
+         ->Annotated with @Entity.
+
+   4. POJO / Model Classes
+         ->Plain Old Java Objects that hold data.
+         ->Often used for request/response models or business objects.
+
+   5. Aspect Classes (AOP)
+         ->Classes annotated with @Aspect.
+         ->Contain cross-cutting concerns like logging, security, transactions.
+
+   6. Test Classes
+         ->Classes used for unit/integration testing.
+         ->Annotated with @SpringBootTest, @RunWith(SpringRunner.class) etc.
+
+5. What is the POJO class?
+->A POJO class is just a plain Java class with private fields and public getters/setters, without any special restrictions. It is mainly used to represent data 
+  (like models/entities) in applications.
+
+Extra Explaination for understanding:
+----------------------------------------------
+   ->Only contains fields (variables) and getter/setter methods.
+   ->Does not extend any special classes or implement any special interfaces (like Serializable or Entity is optional, not mandatory).
+   ->Does not have complex logic → it is just a data carrier.
+   ->Basically, it’s a normal Java object with no restrictions from frameworks.
+
+Where we will use POJO class?
+   ->As Model/Entity in Spring MVC or Spring Boot (to hold request/response data).
+   ->As a data transfer object (DTO) between layers.
+   ->In Hibernate/JPA, POJO classes represent database tables.
+
+6.What is the difference between Java Bean and POJO class?
+->A POJO is just a simple Java class without restrictions, while a Java Bean is a POJO with additional rules — private fields, public getters/setters, 
+  a no-arg constructor, and usually implements Serializable. All Java Beans are POJOs, but not all POJOs are Java Beans.
+
+7.What is Java Bean class?
+->A simple Java class that follows JavaBean rules (private fields, public getters/setters, no-arg constructor, Serializable).
+->Created using new keyword (developer handles lifecycle).
+->Just a class structure for data holding.
+->Ex:DTO class (StudentBean, EmployeeBean).
+
+8.What is Spring Bean?
+->Any Java object that is created, configured, and managed by the Spring IoC container.
+->Created by Spring Container (ApplicationContext / BeanFactory).
+->Ex:@Component, @Service, @Repository, @Controller classes in Spring.
+
+9.Why frameworks prefer Java Beans over POJO classes?
+->Frameworks like Spring, Hibernate, JSP often need to manage objects automatically (create, inject, persist, serialize, etc.).
+  For this, they rely on certain conventions, and that’s why JavaBeans are preferred.
+
+10.What are the types of dependency injection?
+   1.Constructor Injection
+   2.Setter Injection
+   3.Field Injection
+
+11.What is Constructor Injection?
+
+
+
+
